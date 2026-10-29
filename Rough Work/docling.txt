@@ -1,0 +1,57 @@
+python -m venv docling-serve.venv
+
+.\docling-serve.venv\scripts\activate.ps1
+
+python.exe -m pip install --upgrade pip
+
+pip install "docling-serve[ui]"
+
+cd models
+
+mkdir docling
+
+cd ..
+
+cd ..
+
+pip install easyocr
+
+
+
+$env:DOCLING_SERVE_ENABLE_REMOTE_SERVICES = "true"
+
+docling-serve run --enable-ui --port 5001
+
+
+
+
+
+
+
+$config = Get-Content ".\Qwen3-VL-8B-Instruct-int4-ov\generation_config.json" | ConvertFrom-Json
+$config.eos_token_id = @(2, 32007)
+$config | ConvertTo-Json | Set-Content ".\Qwen3-VL-8B-Instruct-int4-ov\generation_config.json"
+
+
+{
+  "do_picture_description": true,
+  "picture_description_api": "{\"url\": \"http://localhost:8001/v3/chat/completions\", \"params\": {\"model\": \"Qwen3-VL-8B-Instruct-int4-ov\"}, \"timeout\": 120, \"prompt\": \"Describe this image in detail, including any diagrams, charts, or mathematical notation shown.\"}"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$env:HF_HUB_OFFLINE = "1"
+$env:HF_HUB_DISABLE_SYMLINKS_WARNING = "1"
+$env:DOCLING_ARTIFACTS_PATH = "C:\Users\Dargater\Desktop\Local AI Project for Intel Hardware\models\docling"

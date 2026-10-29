@@ -1,0 +1,11 @@
+echo "Setting Up OVMS"
+
+$release = Invoke-RestMethod -Uri "https://api.github.com/repos/openvinotoolkit/model_server/releases/latest"
+
+$asset = $release.assets | Where-Object { $_.name -like "ovms_windows*python_on.zip" }
+
+Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "ovms.zip"
+
+Expand-Archive -Path "ovms.zip" -DestinationPath "." -Force
+
+Remove-Item "ovms.zip"

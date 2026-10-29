@@ -1,0 +1,31 @@
+echo "Setting Up Qwen 3 VL"
+
+python.exe -m pip install --upgrade pip
+
+python -m venv optimum_cli.venv
+
+cd optimum_cli.venv
+
+cd scripts
+
+.\activate.ps1
+
+cd ..\
+
+cd ..\
+
+python.exe -m pip install --upgrade pip
+
+pip install optimum-intel@git+https://github.com/huggingface/optimum-intel.git
+
+mkdir models
+
+cd models
+
+
+hf download OpenVINO/Qwen3-VL-8B-Instruct-int4-ov --local-dir ./Qwen3-VL-8B-Instruct-int4-ov
+
+hf download ggml-org/Qwen2.5-VL-3B-Instruct-GGUF Qwen2.5-VL-3B-Instruct-Q4_K_M.gguf --local-dir ./Qwen2.5-VL-3B-Instruct-Q4_K_M-gguf 
+
+
+cmd /c '"..\ovms\setupvars.bat" && "..\ovms\ovms.exe" --source_model .\Qwen3-VL-8B-Instruct-int4-ov --model_repository_path . --model_name Qwen3-VL-8B-Instruct-int4-ov --task text_generation --pipeline_type VLM_CB --target_device GPU --rest_port 8000'

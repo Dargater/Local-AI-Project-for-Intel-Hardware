@@ -1,0 +1,8 @@
+
+git clone https://github.com/langgenius/dify.git
+cd dify/docker
+Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+
+copy .env.example .env
+docker compose up -d
+docker compose down

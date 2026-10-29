@@ -1,0 +1,6 @@
+Tika
+
+
+Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+
+docker run -d --name tika -p 9998:9998 --restart unless-stopped apache/tika:latest-full
