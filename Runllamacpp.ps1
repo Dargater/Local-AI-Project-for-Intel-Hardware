@@ -1,0 +1,2 @@
+llama.exe serve -m "models\Qwen2.5-VL-3B-Instruct-Q4_K_M-gguf\Qwen2.5-VL-3B-Instruct-Q4_K_M.gguf" --port 8001
+
