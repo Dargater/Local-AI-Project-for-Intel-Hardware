@@ -1,6 +1,6 @@
 # Local-AI-Project-for-Intel-Hardware
 Scripts to install and run AI utilities on Intel Hardware.
-SO THIS IS MY FIRST EVER PROJECT SO PLEASE GO EASY ON ME.
+
 
 The project is mainly for budget laptops with Intel Processors with no dedicated graphics driver. The backed used here is OpenVino Model Server. It is 
 optimized for intel hardware including GPU, CPU and NPU. With this backend installed you should be able customize what you want to use to run the model.
