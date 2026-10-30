@@ -12,27 +12,25 @@ You should also ensure your hardware is supported for OpenVino at https://docs.o
 
 If not llama.cpp is probably your only option.
 
-I am still an amateur when it comes to programming and I haven't really taken any specific courses for practical programming for I figured the most efficient way to learn was by making my own project even if it was unpolished. I uploaded my rough work and the final script was polished using Claude to save time. I kept an original draft of Claude response to see exactly where the code was changed.
-
 INSTALLATION
 ------------
 
 Go to root directory. Anything you run should be in the root project directory.
 
 Open powershell as administrator to this root folder and then run the following commands:
-powershell -ExecutionPolicy Bypass -File .\Setup.ps1
+`powershell -ExecutionPolicy Bypass -File .\Setup.ps1`
 
 The script should handle the rest.
 
 After installation has completed run each of the scripts you want but ensure you bypass execution policy:
 
 Open powershell as administrator to this root folder and then run the following commands:
-powershell -ExecutionPolicy Bypass -File .\YourScript.ps1
+`powershell -ExecutionPolicy Bypass -File .\YourScript.ps1`
 
 
 Also if you want to use the model on openwebui or dify ensure you use exactly this as the api url:
 
-http://localhost:8000/v3/
+`http://localhost:8000/v3/`
 
 For any other api follow this format excluding the v3 and using respective ports
 
